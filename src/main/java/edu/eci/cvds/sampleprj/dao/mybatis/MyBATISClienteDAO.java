@@ -6,6 +6,7 @@ import edu.eci.cvds.sampleprj.dao.PersistenceException;
 import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ClienteMapper;
 import edu.eci.cvds.samples.entities.Cliente;
 import edu.eci.cvds.samples.entities.Item;
+import edu.eci.cvds.samples.entities.ItemRentado;
 
 import java.util.Date;
 import java.util.List;
@@ -27,7 +28,7 @@ public class MyBATISClienteDAO implements ClienteDAO {
     }
 
     @Override
-    public Cliente consultarCliente(int id) throws PersistenceException {
+    public Cliente consultarCliente(long id) throws PersistenceException {
         try{
             return clienteMapper.consultarCliente(id);
         }
@@ -47,7 +48,7 @@ public class MyBATISClienteDAO implements ClienteDAO {
     }
 
     @Override
-    public void agregarItemRentadoACliente(int id, int idit, Date fechainicio, Date fechafin) throws PersistenceException {
+    public void agregarItemRentadoACliente(long id, int idit, Date fechainicio, Date fechafin) throws PersistenceException {
         try{
             clienteMapper.agregarItemRentadoACliente(id,idit,fechainicio,fechafin);
         }
@@ -57,7 +58,7 @@ public class MyBATISClienteDAO implements ClienteDAO {
     }
 
     @Override
-    public void vetarCliente(long docu, int estado) throws PersistenceException {
+    public void vetarCliente(long docu, boolean estado) throws PersistenceException {
         try{
             clienteMapper.vetarCliente(docu,estado);
         }
@@ -67,7 +68,7 @@ public class MyBATISClienteDAO implements ClienteDAO {
     }
 
     @Override
-    public List<Item> consultarItemsRentadosCliente(int docu) throws PersistenceException {
+    public List<ItemRentado> consultarItemsRentadosCliente(long docu) throws PersistenceException {
         return null;
     }
 }
