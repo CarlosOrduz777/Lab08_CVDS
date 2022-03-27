@@ -95,6 +95,16 @@
 		<association property="item" javaType="Item" resultMap="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemMapper.ItemResult"></association>
 	</resultMap>
 
+	<select parameterType="map" id="consultarItemsRentadosCliente" resultMap="ClienteResult">
+		select
+			c.nombre,
+			i.nombre
+		from VI_CLIENTES as c
+				 join VI_ITEMRENTADO as ir on c.documento = ir.CLIENTES_documento
+				 join VI_ITEMS as i on ir.ITEMS_id = i.id
+		WHERE c.documento = #{idCliente}
+	</select>
+
 	<!-- Result Map TipoItem-->
 	<resultMap type='TipoItem' id='TipoItemResult'>
 		<id property='id' column='id'/>

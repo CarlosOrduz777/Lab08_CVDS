@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Lab07_CVDS:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Lab07_CVDS</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="MyBATIS-Guice-DAO-VideorentalServicesLayer-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Lab07_CVDS:war exploded" />
+    </root>
+  </artifact>
+</component>

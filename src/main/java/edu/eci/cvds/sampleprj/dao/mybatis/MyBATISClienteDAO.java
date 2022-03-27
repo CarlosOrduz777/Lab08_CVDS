@@ -7,6 +7,7 @@ import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ClienteMapper;
 import edu.eci.cvds.samples.entities.Cliente;
 import edu.eci.cvds.samples.entities.Item;
 import edu.eci.cvds.samples.entities.ItemRentado;
+import edu.eci.cvds.samples.services.ExcepcionServiciosAlquiler;
 
 import java.util.Date;
 import java.util.List;
@@ -68,7 +69,13 @@ public class MyBATISClienteDAO implements ClienteDAO {
     }
 
     @Override
-    public List<ItemRentado> consultarItemsRentadosCliente(long docu) throws PersistenceException {
-        return null;
+    public List<ItemRentado> consultarItemsRentadosCliente(int docu) throws PersistenceException {
+        try {
+            return clienteMapper.consultarItemsRentadosCliente(docu);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new PersistenceException("Se produjo un error al consultar los items rentados del cliente");
+        }
+
     }
 }

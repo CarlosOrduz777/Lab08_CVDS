@@ -51,7 +51,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     }
 
     @Override
-    public List<ItemRentado> consultarItemsCliente(long idcliente) throws ExcepcionServiciosAlquiler {
+    public List<ItemRentado> consultarItemsCliente(int idcliente) throws ExcepcionServiciosAlquiler {
         try {
             return clienteDAO.consultarItemsRentadosCliente(idcliente);
         } catch (Exception e) {
@@ -156,7 +156,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     }
     @Override
     public void registrarItem(Item i) throws ExcepcionServiciosAlquiler {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new ExcepcionServiciosAlquiler("Se produjo un error al registrar el item."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -170,4 +170,6 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
             throw new UnsupportedOperationException("Not supported yet.");
         }
     }
+
+
 }

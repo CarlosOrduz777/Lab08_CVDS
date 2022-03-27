@@ -146,7 +146,7 @@ public class ServiciosAlquilerItemsStub implements ServiciosAlquiler {
     }
 
     @Override
-    public List<ItemRentado> consultarItemsCliente(long idcliente) throws ExcepcionServiciosAlquiler{
+    public List<ItemRentado> consultarItemsCliente(int idcliente) throws ExcepcionServiciosAlquiler{
         if (clientes.containsKey(idcliente)) {
             Cliente c = clientes.get(idcliente);
             return c.getRentados();

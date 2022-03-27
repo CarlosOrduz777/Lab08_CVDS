@@ -2,14 +2,15 @@ package edu.eci.cvds.sampleprj.dao.mybatis.mappers;
 
 import java.util.Date;
 import java.util.List;
+
+import edu.eci.cvds.sampleprj.dao.PersistenceException;
+import edu.eci.cvds.samples.entities.Item;
+import edu.eci.cvds.samples.entities.ItemRentado;
 import org.apache.ibatis.annotations.Param;
 
 import edu.eci.cvds.samples.entities.Cliente;
 
-/**
- *
- * @author 2106913
- */
+
 public interface ClienteMapper {
     
     public Cliente consultarCliente(long id);
@@ -34,4 +35,6 @@ public interface ClienteMapper {
     public List<Cliente> consultarClientes();
     public void registrarCliente(Cliente c);
     public void vetarCliente(long docu, boolean estado);
+
+    public List<ItemRentado> consultarItemsRentadosCliente(@Param("idCliente") int idCliente);
 }
