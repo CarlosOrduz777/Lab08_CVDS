@@ -1,0 +1,15 @@
+machine:
+  java:
+    version: oraclejdk8
+
+deployment:
+  staging:
+    branch: main
+    heroku: 
+      appname: lab08cvds
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
